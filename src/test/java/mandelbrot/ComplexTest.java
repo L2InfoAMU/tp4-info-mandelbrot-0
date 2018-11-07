@@ -140,6 +140,13 @@ public class ComplexTest {
     }
 
     @Test
+    void testReal(){
+        assertEquals(Complex.ONE, Complex.real(1));
+        assertEquals(new Complex(-1, 0), Complex.real(-1));
+        assertEquals(Complex.ZERO, Complex.real(0));
+    }
+
+    @Test
     void testHashCode() {
         Complex c1 = new Complex(real, imaginary);
         Complex c2 = new Complex(real, imaginary);

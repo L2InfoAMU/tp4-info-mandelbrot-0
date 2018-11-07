@@ -132,6 +132,12 @@ public class ComplexTest {
         assertEquals("Complex{real=1.0, imaginary=-1.0}", oneMinusI.toString());
         assertEquals("Complex{real="+real+", imaginary="+imaginary+"}", new Complex(real, imaginary).toString());
     }
+    @Test
+    void testEquals(){
+        assertEquals(false, new Complex(0,1).equals(Complex.ONE));
+        assertEquals(true, new Complex(1, 0).equals(Complex.ONE));
+        assertEquals(true, Complex.ONE.equals(Complex.ONE));
+    }
 
     @Test
     void testHashCode() {

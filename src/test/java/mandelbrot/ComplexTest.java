@@ -110,6 +110,13 @@ public class ComplexTest {
     }
 
     @Test
+    void testModulus(){
+        assertEquals(0,Complex.ZERO.modulus());
+        assertEquals(25,new Complex(25, 0).modulus());
+        assertEquals(10,new Complex(0, -10).modulus());
+    }
+
+    @Test
     void testDivideByZero(){
         assertThrows(ArithmeticException.class, ()->Complex.ONE.divide(Complex.ZERO));
     }

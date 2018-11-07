@@ -98,6 +98,12 @@ public class ComplexTest {
     }
 
     @Test
+    void testSquaredModulus(){
+        assertEquals(0, Complex.ZERO.squaredModulus());
+        assertEquals(34, new Complex(5, 3).squaredModulus());
+    }
+
+    @Test
     void testDivideByZero(){
         assertThrows(ArithmeticException.class, ()->Complex.ONE.divide(Complex.ZERO));
     }

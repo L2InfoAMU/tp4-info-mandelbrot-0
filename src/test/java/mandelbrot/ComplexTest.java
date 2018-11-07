@@ -104,6 +104,12 @@ public class ComplexTest {
     }
 
     @Test
+    void testMultiply(){
+        assertEquals(new Complex(20, 0), new Complex(4, 2).multiply(new Complex(4, -2)));
+        assertEquals(Complex.ONE, Complex.ONE.multiply(Complex.ONE));
+    }
+
+    @Test
     void testDivideByZero(){
         assertThrows(ArithmeticException.class, ()->Complex.ONE.divide(Complex.ZERO));
     }

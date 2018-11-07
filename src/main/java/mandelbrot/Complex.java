@@ -156,7 +156,7 @@ public class Complex {
             return ONE;
         }
         double m = squaredModulus();
-        return new Complex(real / m, imaginary / m);
+        return ONE.divide(this);
     }
 
     /**

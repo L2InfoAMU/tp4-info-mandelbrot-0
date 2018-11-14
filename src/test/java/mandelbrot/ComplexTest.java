@@ -83,7 +83,7 @@ public class ComplexTest {
     }
 
     @Test
-    void testSubstract(){
+    void testSubtract(){
         assertEquals(minusOne, Complex.ZERO.subtract(Complex.ONE));
         assertEquals(oneMinusI, Complex.ONE.subtract(Complex.I));
         assertEquals(new Complex(real-1,imaginary-1),
@@ -117,6 +117,13 @@ public class ComplexTest {
     }
 
     @Test
+    void testPow(){
+        assertEquals(Complex.ZERO,Complex.ZERO.pow(26));
+        assertEquals(Complex.ONE,Complex.ONE.pow(16));
+        assertEquals(new Complex(8, 0),new Complex(2, 0).pow(3));
+    }
+
+    @Test
     void testDivideByZero(){
         assertThrows(ArithmeticException.class, ()->Complex.ONE.divide(Complex.ZERO));
     }
@@ -141,10 +148,18 @@ public class ComplexTest {
     }
 
     @Test
+    void testScale(){
+        assertEquals(new Complex(6, 2), new Complex(3,1).scale(2));
+        assertEquals(Complex.ZERO, Complex.ZERO.scale(8));
+        assertEquals(new Complex(-15, 30), new Complex(-3, 6).scale(5));
+    }
+
+    @Test
     void testToString(){
         assertEquals("Complex{real=1.0, imaginary=-1.0}", oneMinusI.toString());
         assertEquals("Complex{real="+real+", imaginary="+imaginary+"}", new Complex(real, imaginary).toString());
     }
+
     @Test
     void testEquals(){
         assertEquals(false, new Complex(0,1).equals(Complex.ONE));
